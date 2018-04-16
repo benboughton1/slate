@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API Documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -198,10 +198,10 @@
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+      <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,177 +210,332 @@
     </a>
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
-        </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <div id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="introduction">Introduction</a>
           </li>
           <li>
+            <a href="#demo-app" class="toc-h1 toc-link" data-title="demo-app">Demo App</a>
+          </li>
+          <li>
+            <a href="#sentinel-2-vs-landsat-8" class="toc-h1 toc-link" data-title="sentinel-2-vs-landsat-8">Sentinel 2 vs Landsat 8</a>
+          </li>
+          <li>
+            <a href="#https" class="toc-h1 toc-link" data-title="https">HTTPS</a>
+          </li>
+          <li>
+            <a href="#tutorial" class="toc-h1 toc-link" data-title="tutorial">Tutorial</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-key" class="toc-h2 toc-link" data-title="api-key">API Key</a>
+                  </li>
+                  <li>
+                    <a href="#1-add-a-polygon-to-sapi-using-poly-post" class="toc-h2 toc-link" data-title="1-add-a-polygon-to-sapi-using-code-poly-code-post">1. Add a polygon to SAPI using <code>/poly</code> POST</a>
+                  </li>
+                  <li>
+                    <a href="#2-get-the-latest-imagery" class="toc-h2 toc-link" data-title="2-get-the-latest-imagery">2. Get the latest imagery</a>
+                  </li>
+                  <li>
+                    <a href="#3-find-all-available-imagery" class="toc-h2 toc-link" data-title="3-find-all-available-imagery">3. Find all available imagery</a>
+                  </li>
+                  <li>
+                    <a href="#4-find-recent-imagery" class="toc-h2 toc-link" data-title="4-find-recent-imagery">4. Find recent imagery</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#lt-lt-lt-lt-lt-lt-lt-head" class="toc-h1 toc-link" data-title="lt-lt-lt-lt-lt-lt-lt-head">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</a>
+          </li>
+          <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="kittens">Kittens</a>
+            <a href="#api-documentation" class="toc-h1 toc-link" data-title="api-documentation">API Documentation</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="get-all-kittens">Get All Kittens</a>
+                    <a href="#request-information-about-an-area" class="toc-h2 toc-link" data-title="request-information-about-an-area">Request Information About An Area</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="get-a-specific-kitten">Get a Specific Kitten</a>
+                    <a href="#save-an-area-for-later-use" class="toc-h2 toc-link" data-title="save-an-area-for-later-use">Save An Area for Later Use</a>
+                  </li>
+                  <li>
+                    <a href="#get-all-saved-areas" class="toc-h2 toc-link" data-title="get-all-saved-areas">Get All Saved Areas</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-saved-area-39-s-dates" class="toc-h2 toc-link" data-title="get-a-saved-area-s-dates">Get A Saved Area's Dates</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-area-as-geojson" class="toc-h2 toc-link" data-title="get-an-area-as-geojson">Get An Area As GeoJSON</a>
+                  </li>
+                  <li>
+                    <a href="#get-areas-updated" class="toc-h2 toc-link" data-title="get-areas-updated">Get Areas Updated</a>
+                  </li>
+                  <li>
+                    <a href="#download-latest-area-image" class="toc-h2 toc-link" data-title="download-latest-area-image">Download Latest Area Image</a>
+                  </li>
+                  <li>
+                    <a href="#download-historical-area-image" class="toc-h2 toc-link" data-title="download-historical-area-image">Download Historical Area Image</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-area-as-kml" class="toc-h2 toc-link" data-title="get-an-area-as-kml">Get An Area As KML</a>
+                  </li>
+                  <li>
+                    <a href="#save-an-area-with-specific-uuid" class="toc-h2 toc-link" data-title="save-an-area-with-specific-uuid">Save An Area with specific UUID</a>
                   </li>
                   <li>
                     <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="delete-a-specific-kitten">Delete a Specific Kitten</a>
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
-          </li>
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Satamap API (SAPI)! You can use SAPI to access API endpoints for information on various areas of interest, such as paddocks, fields, etc.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>We have language examples using Curl, Javascript, and Python. You can view these code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='demo-app'>Demo App</h1>
+<p>There is a Demo App available at <a href="https://sapi.satamap.com.au/demo">https://sapi.satamap.com.au/demo</a>. It allows you to create new polygons, get previously created polygons and get coverage information and downloads
+of those polygons. You will need an API key to use the Demo App.</p>
+<h1 id='sentinel-2-vs-landsat-8'>Sentinel 2 vs Landsat 8</h1>
+<p>At this time, coverage is available from Sentinel 2 only. Requests for Landsat 8 coverage will return a 200 response
+but with a message indicating that L8 is not yet available.</p>
+<h1 id='https'>HTTPS</h1>
+<p>SAPI provides all API endpoints across HTTPS (TLS). Request to API endpoints via HTTP will return a 307 response
+code with the URI requested mapped to https instead.</p>
+<h1 id='tutorial'>Tutorial</h1>
+<p>The following is an overview of the likely steps that your application will make using SAPI (the Satamap API) in order to get information about areas of interest. SAPI allows you to define areas (known as polygons) and then query for both currently available satellite coverage of that area and also whether updates to that area have occurred since a certain date or since a certain number of hours ago.</p>
+<h3 id='api-key'>API Key</h3>
+<p>To use SAPI, you will need to register and get an API key. Your API keys ensures access to SAPI and also associates any polygons you define with your account.</p>
 
+<p>Once you have your API key, the first step is usually to add a polygon to SAPI. It is possible to do a one-time query about a polygon and get present coverage, but usually you will want to define a polygon with SAPI and then query about that polygon over time.</p>
+<h3 id='1-add-a-polygon-to-sapi-using-poly-post'>1. Add a polygon to SAPI using <code>/poly</code> POST</h3>
+<p>Suppose we have a simple rectangular area which consists of a rectangle i.e. four coordinates defining each point of the rectangle. Polygons can consist of multiple coordinates but for the purposes of this exercise we will use a simple rectangle. Lets the define the rectangle as four pairs of longitude-latitude coordinates, namely:</p>
+
+<p><code>150.21966 -29.37155,
+150.21966 -29.36138,
+150.23494 -29.36138 and
+150.23494 -29.37155</code></p>
+
+<p>We need to restructure these coordinates and pass them to <code>https://sapi.satamap.com.au/v1/&lt;apikey&gt;/</code>. All SAPI URIs use this base URI.</p>
+
+<p>The specific URI request to create a polygon is a POST request to <code>https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/</code> followed by the coordinates. To create a polygon, we need to provide a bounded area and so we pass the first coordinate both as the first and last in the coordinate series.</p>
+
+<p>The sequence of coordinates are passed in a format known as WKT (Well-Known Text) which for the above coordinates would be:
+<code>((150.21966 -29.37155,150.21966 -29.36138,150.23494 -29.36138,150.23494 -29.37155,150.21966 -29.37155))</code></p>
+
+<p>If your API key was <code>mykey</code>, then using the command-line utility <code>curl</code>, a POST can be performed with:</p>
+
+<p><code>curl -X POST &quot;https://sapi.satamap.com.au/v1/mykey/poly/((150.21966%20-29.37155,150.21966%20-29.36138,150.23494%20-29.36138,150.23494%20-29.37155,150.21966%20-29.37155))&quot;</code></p>
+
+<p>Note that as the coordinates form a URI, we encode spaces as <code>%20</code>.</p>
+
+<p>From the above POST, a UUID will be returned by SAPI in a JSON response:</p>
+
+<p><code>{
+  &quot;message&quot;: &quot;polygon created&quot;,
+  &quot;uuid&quot;: &quot;123e4567-e89b-12d3-a456-426655440000&quot;
+}</code></p>
+
+<p>Store this UUID safely (e.g. in your database) as this is how you will refer to this polygon in the future.
+You now have a couple options to download imagery, either the last captured or from the SAPI archive.</p>
+<h3 id='2-get-the-latest-imagery'>2. Get the latest imagery</h3>
+<p>Once the polygon is defined and you have the UUID, you can download the latest image capture by using the <code>/poly/download_latest</code> URI. The full URI format is:</p>
+
+<p><code>https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/download_latest/&lt;uuid&gt;/&lt;coverage&gt;/&lt;filetype&gt;</code></p>
+
+<p>where UUID is the reference to the polygon.</p>
+
+<p>SAPI detects cloud in images and the <code>coverage</code> parameter is a value from 0 to 1 that allows you to specify how much non-cloud coverage is acceptable to you. For example, let&#39;s specify 1 which will mean the latest image that is clear of any cloud.</p>
+
+<p>SAPI supports RGB, NDVI and PCD. Let&#39;s use RGB and using the UUID example provided previously, that will give us
+a valid URI of:</p>
+
+<p><code>https://sapi.satamap.com.au/v1/mykey/poly/download_latest/123e4567-e89b-12d3-a456-426655440000/1/RGB</code></p>
+
+<p>You can try this with <code>curl</code> or even just put the URI into your browser. A recent browser will save the file with a filename that includes the filetype and the imagery date e.g. <code>RGB_2016-12-01.tif</code></p>
+<h3 id='3-find-all-available-imagery'>3. Find all available imagery</h3><pre class="highlight plaintext"><code>{
+  "availabledates": [
+    {
+      "tile": "t091080",
+      "source": "l8",
+      "pass": 0,
+      "date": "2016-11-27",
+      "coverage": 1
+    },
+    {
+      "tile": "t56jkn",
+      "source": "s2",
+      "pass": 0,
+      "date": "2016-11-26",
+      "coverage": 1
+    }
+  ]
+}
+</code></pre>
+<p>You can also get information about all available imagery for your polygon using the <code>/poly/availabledates/&lt;uuid&gt;</code> URI.</p>
+
+<p>This will return a JSON response that lists every date for which imagery is available and details about how that imagery was captured (e.e satellite source, satellite pass, etc.). An example response to <em>availabledates</em> is listed in the dark area to the right.</p>
+
+<p>The JSON response provides the date of each image, as well as the satellite source (&#39;s2&#39; is Sentinel 2, &#39;l8&#39; is Landsat 8), the satellite &#39;tile&#39;, the satellite pass (usually 0) and the coverage. Coverage can range from 0% to 100% and so the coverage value is normalized to between 0 and 1.</p>
+<h3 id='4-find-recent-imagery'>4. Find recent imagery</h3><pre class="highlight plaintext"><code>{
+  "updated": "2017-01-02 00:11 UTC",
+  "uuids": [
+    "583fb96c-5f91-4ffa-8fca-bd799460e5ff"
+  ]
+}
+</code></pre>
+<p>If you want to check if your defined polygons have been updated recently, you can use <code>/poly/updates</code> which will return a list of UUIDs of your polygons that have been updated since duration you specify. </p>
+
+<p>So to get all polygons updated in the last 24 hours with 100% coverage, the URI would be:</p>
+
+<p><code>https://sapi.satamap.com.au/v1/&lt;apikey&gt;/updates/24/1</code></p>
+
+<p>An example response of updated uuids is listed to the right.</p>
+
+<p>In addition to the list of updated UUIDS (which may be zero), the response also provides the UTC time that was used when doing the search for you.</p>
+
+<p>With the list of UUIDs returned, you can use <code>/poly/download_latest</code> described in Step 2 to get the most recent update for each polygon.</p>
+<h1 id='lt-lt-lt-lt-lt-lt-lt-head'>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</h1>
 <p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>upstream/master</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<pre class="highlight python tab-python"><code><span class="c"># just pass the correct API Key with each request</span>
+<span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/..."</span><span class="p">)</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># just pass the correct API Key with each request</span>
+curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/..."</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// just pass the correct API Key with each request</span>
+<span class="nx">e</span><span class="p">.</span><span class="nx">g</span><span class="p">.</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/..."</span><span class="p">)</span>
 </code></pre>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Make sure to replace <code>mykey</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>SAPI uses organisation keys to allow access to the API. You can register for a new SAPI key at our <a href="https://sapi.satamap.com.au/signup">developer portal</a>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>SAPI expects the API key to be included in <strong>ALL</strong> API requests to the server in the submitted URL. All URLs should start with:</p>
 
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>https://sapi.satamap.com.au/v1/&lt;orgkey&gt;/.....</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>orgkey</code> with your organisation API key.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='api-documentation'>API Documentation</h1><h2 id='request-information-about-an-area'>Request Information About An Area</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/((150.2871 -29.1527,150.2871 -29.1484,150.3044 -29.14841,150.3044 -29.1527,150.2871 -29.1527))"</span><span class="p">)</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">availabledates</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'availabledates'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">availabledates</span><span class="p">:</span>
+        <span class="c"># print first available date details</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Date: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'date'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Source: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'source'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Tile: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'tile'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Pass: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'pass'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Coverage: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'coverage'</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/((150.2871%20-29.1527%2C150.2871%20-29.1484%2C150.3044%20-29.14841%2C150.3044%20-29.1527%2C150.2871%20-29.1527))"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/((150.2871%20-29.1527%2C150.2871%20-29.1484%2C150.3044%20-29.14841%2C150.3044%20-29.1527%2C150.2871%20-29.1527))"</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Retrieved "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s2">" coverage dates"</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Most recent date: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">date</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Source: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">source</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Coverage: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">coverage</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Tile: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tile</span><span class="p">);</span>  
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
 </code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>This URI returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="s2">"availabledates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t56jkn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-29"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t56jkn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-26"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t56jkn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t56jkn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-09"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t56jkn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-12-06"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.807296</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p>This endpoint retrieves all available coverage information about the polygon specified from Sentinel 2 and Landsat 8. The URI consists of api key, <strong>/poly/</strong>, followed by a series of longitude-latitude
+pairs in <a href="https://en.wikipedia.org/wiki/Well-known_text">Well-Known Text format</a>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/&lt;wkt-coordinates&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -389,10 +544,910 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>WKT coordinates</td>
+<td>The bounding longitude-latitude pairs that define the area e.g. ((150.2871%20-29.1527,150.2871%20-29.1484,150.3044%20-29.14841,150.3044%20-29.1527,150.2871%20-29.1527)) Spaces are encoded.</td>
 </tr>
 </tbody></table>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p>None</p>
+<h2 id='save-an-area-for-later-use'>Save An Area for Later Use</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/((150.2871 -29.1527,150.2871 -29.1484,150.3044 -29.14841,150.3044 -29.1527,150.2871 -29.1527))"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'uuid'</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/((150.2871%20-29.1527%2C150.2871%20-29.1484%2C150.3044%20-29.14841%2C150.3044%20-29.1527%2C150.2871%20-29.1527))"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// use an init for a POST. Otherwise, exactly the same as a GET.</span>
+<span class="kd">var</span> <span class="nx">myInit</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span> <span class="p">};</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/((150.2871%20-29.1527%2C150.2871%20-29.1484%2C150.3044%20-29.14841%2C150.3044%20-29.1527%2C150.2871%20-29.1527))"</span><span class="p">,</span> <span class="nx">init</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"UUID: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">uuid</span><span class="p">);</span>  
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"polygon created"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123e4567-e89b-12d3-a456-426655440000"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to save a predefined area in the SAPI system. It returns a confirmation message and a Universally unique identifer]
+(https://en.wikipedia.org/wiki/Universally/_unique_identifier), hereon referred to as a UUID.</p>
+
+<p>The syntax is exactly the same as for getting information about an area however POST is used instead of GET to create the area and it&#39;s UUID.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/&lt;wkt-coordinates&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>WKT coordinates</td>
+<td>The bounding longitude-latitude pairs that define the area e.g. ((150.2871%20-29.1527,150.2871%20-29.1484,150.3044%20-29.14841,150.3044%20-29.1527,150.2871%20-29.1527)) Spaces are encoded.</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<p>None</p>
+<h2 id='get-all-saved-areas'>Get All Saved Areas</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/polys"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">uuid</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s">'uuids'</span><span class="p">]:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">uuid</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/polys"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/polys"</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="k">if</span> <span class="p">(</span><span class="s2">"uuids"</span> <span class="k">in</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">uuids</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">uuids</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+          <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"No polygons defined yet"</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"uuids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"6ad1a06f-aa95-43b8-8331-28fc59e42daa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"64257a32-4159-4c30-af98-dc185374324a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6653c7a6-ad05-48a9-a16b-aa53ee7a7a8f"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"36a39fe0-f6da-4051-819e-715434519a71"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to get the UUIDs of all polygons that you have predefined.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/polys</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<p>Query parameters are optional parameters appended to the URL</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extref</td>
+<td>false</td>
+<td>If set to true, return all uuids supplied by you</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-saved-area-39-s-dates'>Get A Saved Area&#39;s Dates</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/availabledates/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">availabledates</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'availabledates'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">availabledates</span><span class="p">:</span>
+        <span class="c"># print first available date details</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Date: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'date'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Source: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'source'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Tile: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'tile'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Pass: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'pass'</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Coverage: </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">'coverage'</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/availabledates/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/availabledates/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// Examine the response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Retrieved "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s2">" coverage dates"</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Most recent date: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">date</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Source: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">source</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Coverage: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">coverage</span><span class="p">);</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Tile: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">availabledates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">tile</span><span class="p">);</span>  
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"availabledates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t091080"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"l8"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-27"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t56jkn"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-26"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"tile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t55jgh"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"pass"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-11-19"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to get all coverage dates of a specific area by referencing it&#39;s UUID.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/availabledates/&lt;uuid&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<p>Query parameters are optional parameters appended to the URL</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extref</td>
+<td>false</td>
+<td>If set to true, regard uuid as defined by you</td>
+</tr>
+</tbody></table>
+<h2 id='get-an-area-as-geojson'>Get An Area As GeoJSON</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/geojson/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"GeoJSON Type </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s">'type'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'coordinates'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X GET <span class="s2">"http://sapi.satamap.com.au/v1/mykey/poly/geojson/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/geojson/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">type</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]);</span>  
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MultiPolygon"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"coordinates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="mf">150.1032</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-29.18915</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="mf">150.09951</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-29.21072</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="mf">150.10127</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-29.21147</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="mf">150.1023</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-29.20994</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="p">[</span><span class="w">
+        </span><span class="mf">150.1074</span><span class="p">,</span><span class="w">
+        </span><span class="mf">-29.21069</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint provides the GeoJSON for a predefined area.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/geojson/&lt;uuid&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<p>Query parameters are optional parameters appended to the URL</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extref</td>
+<td>false</td>
+<td>If set to true, regard uuid as defined by you</td>
+</tr>
+</tbody></table>
+<h2 id='get-areas-updated'>Get Areas Updated</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/updates/24/1"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Updated since </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">data</span><span class="p">[</span><span class="s">'updated'</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">uuid</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s">'uuids'</span><span class="p">]:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">uuid</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Get all updates of full coverage from November 1st, 2016</span>
+curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/updates/20161101/1"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// fetch all full coverage updates in the last 24 hours</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/updates/24/1"</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Updated from: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">updated</span><span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">uuids</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">uuids</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>  
+        <span class="p">}</span>
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-06 11:33:34 UTC"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uuids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"a8e7937c-6361-4530-85ce-0432a9bb9e2e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6027446d-04c3-445d-8397-1de0a7983a54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"6920e27e-1554-4378-b735-4d68588e4a9a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"d84045d4-a4e5-40cc-913f-85bb20dc324c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"8aa12952-0b25-406c-ba11-ec7a9575b21b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"e7e61227-1a33-46ac-9af9-bbf5b8fb5199"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"0ee66046-e3a7-4953-9f6f-204952dfcd92"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"7545a96c-0fcd-40ec-a205-7bccbca4e517"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"a23dc9e1-0199-42f0-a132-11e28bcf8dd9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"7dc16a6b-2586-4131-867a-bbf2a693cc0d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"8b0e3382-b7f0-432e-a6e8-7ebc3df7f065"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint provides all UUIDs of areas that have received an update since a given date.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/updates/&lt;date&gt;/&lt;coverage&gt;</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Date can be specified as either YYYYMMDD or YYYYMMDDHHMMSS or an integer of the number of hours since now. i.e. for all updates in the last 24 hours, use 24. Note that the <em>updated</em> field in the JSON response specifies the date used in UTC.</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td>The minimum coverage required. Coverage should be between 0 and 1 i.e. 0% to 100%. If in doubt, use 1.</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<p>Query parameters are optional parameters appended to the URL</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extref</td>
+<td>false</td>
+<td>If set to true, provide uuids as defined by you</td>
+</tr>
+</tbody></table>
+<h2 id='download-latest-area-image'>Download Latest Area Image</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c"># Python pillow</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/download_latest/90722b22-8ea2-4e2a-be45-ec943afe9e2c/1/rgb?source=s2"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c"># Content-Disposition suggests a filename to use</span>
+    <span class="c"># usually of the form 'attachment; filename="RGB_2017-01-30.tif"'</span>
+    <span class="k">if</span> <span class="s">'Content-Disposition'</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+        <span class="n">attachment</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'Content-Disposition'</span><span class="p">]</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">attachment</span><span class="p">[</span><span class="n">attachment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"filename="</span><span class="p">)</span><span class="o">+</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">tif</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+    <span class="n">tif</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Get the most recent RGB TIF of area UUID 05157fea-6d7b-4c5b-86ac-48124cfd393c with 100% coverage</span>
+curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/download_latest/05157fea-6d7b-4c5b-86ac-48124cfd393c/1/rgb"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/download_latest/90722b22-8ea2-4e2a-be45-ec943afe9e2c/1/RGB"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">blob</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">blob</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Filesize is: "</span> <span class="o">+</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns a TIF image.</p>
+</blockquote>
+
+<p>This endpoint provides the latest TIF image of the area specified.</p>
+
+<p>For testing, these URLs can be entered into most browsers, which will save the file as <em>filetype</em>_<em>date</em>.<em>tif</em>.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/download_latest/&lt;uuid&gt;/&lt;coverage&gt;/&lt;filetype&gt;</code>&quot;</p>
+<h3 id='url-parameters-7'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`</td>
+</tr>
+<tr>
+<td>Coverage</td>
+<td>Coverage should be between 0 and 1 (i.e. 0% to 100%).</td>
+</tr>
+<tr>
+<td>Filetype</td>
+<td>Filetype can be one of: RGB, NDVI or PCD. See below definitions.</td>
+</tr>
+</tbody></table>
+
+<p><em>RGB</em> - a regular visible TIF file</p>
+
+<p><em>NDVI</em> - Normalized Difference Vegetation Index</p>
+
+<p><em>PCD</em>  - Plant Cell Density</p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<p>Query parameters are optional parameters appended to the URL</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>source</td>
+<td>all</td>
+<td>If set to s2, only Sentinel 2 coverage is provided. Set to l8 for Landsat 8 coverage only.</td>
+</tr>
+<tr>
+<td>nomask</td>
+<td>false</td>
+<td>If set to true, partial coverage images will not have cloud masked out</td>
+</tr>
+<tr>
+<td>fixedge</td>
+<td>0</td>
+<td>If set to a positive integer and NDVI or PCD requested, improves edge boundary in meters of coarse resolution.</td>
+</tr>
+<tr>
+<td>extref</td>
+<td>false</td>
+<td>If set to true, use uuid defined by you</td>
+</tr>
+</tbody></table>
+
+<p>i.e. <code>?source=s2</code> can be appended to the URL</p>
+<h2 id='download-historical-area-image'>Download Historical Area Image</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="c"># Python pillow</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/download/90722b22-8ea2-4e2a-be45-ec943afe9e2c/20161126/s2/t56jkn/0/RGB/tif"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c"># Content-Disposition suggests a filename to use</span>
+    <span class="c"># usually of the form 'attachment; filename="RGB_2016-11-26.tif"'</span>
+    <span class="k">if</span> <span class="s">'Content-Disposition'</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+        <span class="n">attachment</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">'Content-Disposition'</span><span class="p">]</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">attachment</span><span class="p">[</span><span class="n">attachment</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">"filename="</span><span class="p">)</span><span class="o">+</span><span class="mi">10</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="n">tif</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">))</span>
+    <span class="n">tif</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Get an RGB TIF of area UUID 90722b22-8ea2-4e2a-be45-ec943afe9e2c on 2016-11-26 from Sentinel 2 on pass 0 of tile t56jkn</span>
+curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/download/90722b22-8ea2-4e2a-be45-ec943afe9e2c/20161126/s2/t56jkn/0/RGB/tif"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/download/90722b22-8ea2-4e2a-be45-ec943afe9e2c/20161126/s2/t56jkn/0/RGB/tif"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">blob</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">blob</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Filesize is: "</span> <span class="o">+</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">size</span><span class="p">);</span>
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns a TIF image.</p>
+</blockquote>
+
+<p>This endpoint provides a TIF image of the area from the date, tile, pass and satellite specified.</p>
+
+<p>For testing, these URLs can be entered into most browsers, which will save the file as <em>filetype</em>_<em>date</em>.<em>tif</em>.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/download/&lt;uuid&gt;/&lt;date&gt;/&lt;source&gt;/&lt;tile&gt;/&lt;pass&gt;/&lt;filetype&gt;/tif</code></p>
+<h3 id='url-parameters-8'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Date should be specified as YYYYMMDD.</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Source should be either &#39;s2&#39; or &#39;l8&#39;.</td>
+</tr>
+<tr>
+<td>Tile</td>
+<td>Tile is a specific tile e.g. &#39;t56jkn&#39;</td>
+</tr>
+<tr>
+<td>Pass</td>
+<td>Pass is generally 0, but can be a higher integer e.g. 1 or 2 if multiple passes have ocurred.</td>
+</tr>
+<tr>
+<td>Filetype</td>
+<td>Filetype can be one of: RGB, NDVI or PCD. See below definitions.</td>
+</tr>
+</tbody></table>
+
+<p><em>RGB</em> - a regular visible TIF file</p>
+
+<p><em>NDVI</em> - Normalized Difference Vegetation Index</p>
+
+<p><em>PCD</em>  - Plant Cell Density</p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<p>Query parameters are optional parameters appended to the URL</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nomask</td>
+<td>false</td>
+<td>If set to true, partial coverage images will not have cloud masked out</td>
+</tr>
+<tr>
+<td>fixedge</td>
+<td>0</td>
+<td>If set to a positive integer and NDVI or PCD requested, improves edge boundary in meters of coarse resolution.</td>
+</tr>
+<tr>
+<td>extref</td>
+<td>false</td>
+<td>If set to true, use uuid defined by you</td>
+</tr>
+</tbody></table>
+
+<p>i.e. <code>?nomask=true</code> can be appended to the URL</p>
+<h2 id='get-an-area-as-kml'>Get An Area As KML</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/kml/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c"># body text is KML</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># Get an KML file of area UUID 90722b22-8ea2-4e2a-be45-ec943afe9e2c</span>
+curl -X GET <span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/kml/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/kml/90722b22-8ea2-4e2a-be45-ec943afe9e2c"</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// body text is KML</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">text</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a KML file.</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;MultiGeometry&gt;</span>
+    <span class="nt">&lt;Polygon&gt;</span>
+        <span class="nt">&lt;outerBoundaryIs&gt;</span>
+            <span class="nt">&lt;LinearRing&gt;</span>
+                <span class="nt">&lt;coordinates&gt;</span>150.1032,-29.18915 150.09951,-29.21072 150.10127,-29.21147 150.1023,-29.20994 150.1074,-29.21069 150.10775,-29.21151 150.11187,-29.21061 150.11478,-29.21159 150.1156,-29.2114 150.1159,-29.21031 150.11757,-29.19994 150.11629,-29.19949 150.11757,-29.1993 150.11826,-29.19537 150.11796,-29.19537 150.1174,-29.19589 150.11744,-29.19522 150.11607,-29.1951 150.11427,-29.19405 150.11268,-29.19271 150.11024,-29.19226 150.10933,-29.19121 150.10637,-29.18956 150.1047,-29.18922 150.1032,-29.18915<span class="nt">&lt;/coordinates&gt;</span>
+            <span class="nt">&lt;/LinearRing&gt;</span>
+        <span class="nt">&lt;/outerBoundaryIs&gt;</span>
+        <span class="nt">&lt;innerBoundaryIs&gt;</span>
+            <span class="nt">&lt;LinearRing&gt;</span>
+                <span class="nt">&lt;coordinates&gt;</span>150.11313,-29.20668 150.11137,-29.2073 150.11167,-29.20647 150.11313,-29.20668<span class="nt">&lt;/coordinates&gt;</span>
+            <span class="nt">&lt;/LinearRing&gt;</span>
+        <span class="nt">&lt;/innerBoundaryIs&gt;</span>
+    <span class="nt">&lt;/Polygon&gt;</span>
+<span class="nt">&lt;/MultiGeometry&gt;</span>
+</code></pre>
+<p>This endpoint provides a KML file that defines the area.</p>
+
+<p>For testing, these URLs can be entered into most browsers, which will save the file as <em>date</em>.<em>kml</em>.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/kml/&lt;uuid&gt;</code></p>
+<h3 id='url-parameters-9'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-9'>Query Parameters</h3>
+<p>Query parameters are optional parameters appended to the URL</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extref</td>
+<td>false</td>
+<td>If set to true, regard uuid as defined by you</td>
+</tr>
+</tbody></table>
+<h2 id='save-an-area-with-specific-uuid'>Save An Area with specific UUID</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">"https://sapi.satamap.com.au/v1/mykey/poly/37fa49f3-8ef4-4f03-bbef-29b491637bd2/((150.2871 -29.1527,150.2871 -29.1484,150.3044 -29.14841,150.3044 -29.1527,150.2871 -29.1527))"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'uuid'</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'Failed: status code </span><span class="si">%</span><span class="s">d'</span> <span class="o">%</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s">'message'</span> <span class="ow">in</span> <span class="n">error</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">error</span><span class="p">[</span><span class="s">'message'</span><span class="p">])</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl -X POST <span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/37fa49f3-8ef4-4f03-bbef-29b491637bd2/((150.2871%20-29.1527%2C150.2871%20-29.1484%2C150.3044%20-29.14841%2C150.3044%20-29.1527%2C150.2871%20-29.1527))"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// use an init for a POST. Otherwise, exactly the same as a GET.</span>
+<span class="kd">var</span> <span class="nx">myInit</span> <span class="o">=</span> <span class="p">{</span> <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span> <span class="p">};</span>
+<span class="nx">fetch</span><span class="p">(</span><span class="s2">"https://sapi.satamap.com.au/v1/mykey/poly/37fa49f3-8ef4-4f03-bbef-29b491637bd2/((150.2871%20-29.1527%2C150.2871%20-29.1484%2C150.3044%20-29.14841%2C150.3044%20-29.1527%2C150.2871%20-29.1527))"</span><span class="p">,</span> <span class="nx">init</span><span class="p">)</span>  
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span>  
+    <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>  
+      <span class="k">if</span> <span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Error Status Code: '</span> <span class="o">+</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>  
+        <span class="c1">// check body for error message</span>
+        <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="s2">"message"</span> <span class="k">in</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">});</span>  
+        <span class="k">return</span><span class="p">;</span>  
+      <span class="p">}</span>
+      <span class="c1">// examine successful response  </span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"UUID: "</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">uuid</span><span class="p">);</span>  
+      <span class="p">});</span>  
+    <span class="p">}</span>  
+  <span class="p">)</span>  
+  <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Fetch Error:'</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>  
+  <span class="p">});</span>
+</code></pre>
+<blockquote>
+<p>This URI returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"polygon created"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"37fa49f3-8ef4-4f03-bbef-29b491637bd2"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to save a predefined area in the SAPI system to be referred to with a supplied UUID i.e. it essentially allows you to use your own UUIDs. The URI returns a confirmation message and a confirmation of the  Universally unique identifer
+(https://en.wikipedia.org/wiki/Universally/_unique_identifier), hereon referred to as a UUID.</p>
+
+<p>The syntax is exactly the same as for getting information about an area however POST is used instead of GET to create the area and it&#39;s UUID.</p>
+
+<aside class="notice">
+By default, the UUIDs supplied to SAPI URIs are expected to refer to a UUID produced by SAPI for you. If you have used this URI to specify a new polygon with your own UUID,
+on other URI requests where you request information about that polygon, you <b>must add the querystring</b> <code>extref=true</code> to tell SAPI to look in your
+table of UUIDs rather than the internal UUIDs. Failure to add this query string will likely result in an <i>Invalid UUID</i> response.
+</aside>
+
+<aside class="warning">
+If you choose to use this URI method for creating polygons, you must be consistent and use only this method for creating polygons.
+</aside>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST https://sapi.satamap.com.au/v1/&lt;apikey&gt;/poly/&lt;uuid&gt;/&lt;wkt-coordinates&gt;</code></p>
+<h3 id='url-parameters-10'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>API Key</td>
+<td>Your API key</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>A UUID created by you to refer to this polygon.</td>
+</tr>
+<tr>
+<td>WKT coordinates</td>
+<td>The bounding longitude-latitude pairs that define the area e.g. ((150.2871%20-29.1527,150.2871%20-29.1484,150.3044%20-29.14841,150.3044%20-29.1527,150.2871%20-29.1527)) Spaces are encoded.</td>
+</tr>
+</tbody></table>
+<h3 id='query-parameters-10'>Query Parameters</h3>
+<p>None</p>
 <h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
@@ -418,9 +1473,9 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-11'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -432,73 +1487,9 @@ Remember — a happy kitten is an authenticated kitten!
 <td>The ID of the kitten to delete</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
 
       </div>
       <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
-          </div>
       </div>
     </div>
   </body>
