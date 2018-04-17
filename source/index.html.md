@@ -851,11 +851,15 @@ Parameter | Description
 API Key | Your API key
 UUID | e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`
 Coverage | Coverage should be between 0 and 1 (i.e. 0% to 100%).
-Filetype | Filetype can be one of: RGB, NDVI or PCD. See below definitions.
+Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI or PCD. See below definitions.
 
 *RGB* - a regular visible TIF file
 
 *NDVI* - Normalized Difference Vegetation Index
+
+*NDRE* - Normalized Difference Red Edge Index. NDRE is only available with source parameter of s2 (i.e. Sentinel)
+
+*SVI*  - Satamap Vegetation Index
 
 *PCD*  - Plant Cell Density
 
@@ -937,7 +941,7 @@ For testing, these URLs can be entered into most browsers, which will save the f
 
 ### HTTP Request
 
-`GET https://sapi.satamap.com.au/v1/<apikey>/poly/download/<uuid>/<date>/<source>/<tile>/<pass>/<filetype>/tif`
+`GET https://sapi.satamap.com.au/v1/<apikey>/poly/download/<uuid>/<date>/<source>/<tile>/<pass>/<datatype>/<filetype>`
 
 ### URL Parameters
 
@@ -949,13 +953,26 @@ Date | Date should be specified as YYYYMMDD.
 Source | Source should be either 's2' or 'l8'.
 Tile | Tile is a specific tile e.g. 't56jkn'
 Pass | Pass is generally 0, but can be a higher integer e.g. 1 or 2 if multiple passes have ocurred.
-Filetype | Filetype can be one of: RGB, NDVI or PCD. See below definitions.
+Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI or PCD. See below definitions.
+File Type | File type can be either 'tif' or 'csv'. Usually it will be tif.
 
-*RGB* - a regular visible TIF file
+**Data Types:**
+
+*RGB* - a regular visible RGB file
 
 *NDVI* - Normalized Difference Vegetation Index
 
+*NDRE* - Normalized Difference Red Edge Index. NDRE is only available with source parameter of s2 (i.e. Sentinel)
+
+*SVI*  - Satamap Vegetation Index
+
 *PCD*  - Plant Cell Density
+
+**File Types:**
+
+*tif* - a TIF file. The most frequently used value as the data types listed above are all delivered in a TIF format file.
+
+*csv* - a CSV (Comma Seperated) list of all the boundary points for the polygon where each row defines an x, y, z point
 
 ### Query Parameters
 
