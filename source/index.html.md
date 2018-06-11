@@ -851,7 +851,7 @@ Parameter | Description
 API Key | Your API key
 UUID | e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`
 Coverage | Coverage should be between 0 and 1 (i.e. 0% to 100%).
-Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI or PCD. See below definitions.
+Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI, SVIER or PCD. See below definitions.
 
 *RGB* - a regular visible TIF file
 
@@ -860,6 +860,8 @@ Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI or PCD. See below defi
 *NDRE* - Normalized Difference Red Edge Index. NDRE is only available with source parameter of s2 (i.e. Sentinel)
 
 *SVI*  - Satamap Vegetation Index
+
+*SVIER*  - Satamap Vegetation Index - Equal Rendered (RGB representation of SVI)
 
 *PCD*  - Plant Cell Density
 
@@ -953,7 +955,7 @@ Date | Date should be specified as YYYYMMDD.
 Source | Source should be either 's2' or 'l8'.
 Tile | Tile is a specific tile e.g. 't56jkn'
 Pass | Pass is generally 0, but can be a higher integer e.g. 1 or 2 if multiple passes have ocurred.
-Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI or PCD. See below definitions.
+Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI, SVIER or PCD. See below definitions.
 File Type | File type can be either 'tif' or 'csv'. Usually it will be tif.
 
 **Data Types:**
@@ -965,6 +967,8 @@ File Type | File type can be either 'tif' or 'csv'. Usually it will be tif.
 *NDRE* - Normalized Difference Red Edge Index. NDRE is only available with source parameter of s2 (i.e. Sentinel)
 
 *SVI*  - Satamap Vegetation Index
+
+*SVIER*  - Satamap Vegetation Index - Equal Rendered (RGB representaion of SVI)
 
 *PCD*  - Plant Cell Density
 
