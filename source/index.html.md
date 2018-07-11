@@ -784,11 +784,11 @@ import requests
 from io import BytesIO
 from PIL import Image # Python pillow
 
-r = requests.get("https://sapi.satamap.com.au/v1/mykey/poly/download_latest/90722b22-8ea2-4e2a-be45-ec943afe9e2c/1/rgb?source=s2")
+r = requests.get("https://sapi.satamap.com.au/v1/mykey/poly/download_latest/90722b22-8ea2-4e2a-be45-ec943afe9e2c/1/rgb/png?source=s2")
 
 if r.status_code == 200:
     # Content-Disposition suggests a filename to use
-    # usually of the form 'attachment; filename="RGB_2017-01-30.tif"'
+    # usually of the form 'attachment; filename="RGB_2017-01-30.png"'
     if 'Content-Disposition' in r.headers:
         attachment = r.headers['Content-Disposition']
         filename = attachment[attachment.find("filename=")+10:-1]
@@ -803,12 +803,12 @@ else:
 ```
 
 ```shell
-# Get the most recent RGB TIF of area UUID 05157fea-6d7b-4c5b-86ac-48124cfd393c with 100% coverage
-curl -X GET "https://sapi.satamap.com.au/v1/mykey/poly/download_latest/05157fea-6d7b-4c5b-86ac-48124cfd393c/1/rgb"
+# Get the most recent RGB PNG of area UUID 05157fea-6d7b-4c5b-86ac-48124cfd393c with 100% coverage
+curl -X GET "https://sapi.satamap.com.au/v1/mykey/poly/download_latest/05157fea-6d7b-4c5b-86ac-48124cfd393c/1/rgb/png"
 ```
 
 ```javascript
-fetch("https://sapi.satamap.com.au/v1/mykey/poly/download_latest/90722b22-8ea2-4e2a-be45-ec943afe9e2c/1/RGB")
+fetch("https://sapi.satamap.com.au/v1/mykey/poly/download_latest/90722b22-8ea2-4e2a-be45-ec943afe9e2c/1/RGB/PNG")
   .then(  
     function(response) {  
       if (response.status != 200) {  
@@ -832,17 +832,17 @@ fetch("https://sapi.satamap.com.au/v1/mykey/poly/download_latest/90722b22-8ea2-4
   });
 ```
 
-> This URI returns a TIF image.
+> This URI returns a PNG image.
 
 
-This endpoint provides the latest TIF image of the area specified.
+This endpoint provides the latest PNG image of the area specified.
 
-For testing, these URLs can be entered into most browsers, which will save the file as *filetype*_*date*.*tif*.
+For testing, these URLs can be entered into most browsers, which will save the file as *filetype*_*date*.*png*.
 
 
 ### HTTP Request
 
-`GET https://sapi.satamap.com.au/v1/<apikey>/poly/download_latest/<uuid>/<coverage>/<filetype>`"
+`GET https://sapi.satamap.com.au/v1/<apikey>/poly/download_latest/<uuid>/<coverage>/<datatype>/<filetype>`
 
 ### URL Parameters
 
@@ -852,6 +852,9 @@ API Key | Your API key
 UUID | e.g. 90722b22-8ea2-4e2a-be45-ec943afe9e2c`
 Coverage | Coverage should be between 0 and 1 (i.e. 0% to 100%).
 Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI, SVIER or PCD. See below definitions.
+File Type | File type can be either 'tif' or 'png'. Usually it will be tif. 'png' is only valid for data types of RGB or SVIER.
+
+**Data Types:**
 
 *RGB* - a regular visible TIF file
 
@@ -864,6 +867,12 @@ Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI, SVIER or PCD. See bel
 *SVIER*  - Satamap Vegetation Index - Equal Rendered (RGB representation of SVI)
 
 *PCD*  - Plant Cell Density
+
+**File Types:**
+
+*tif* - a TIF file. The most frequently used value as the data types listed above are all delivered in a TIF format file.
+
+*png* - a PNG file. PNG images can be viewed in a web browser. Only valid for RGB and SVIER data types.
 
 ### Query Parameters
 
@@ -956,7 +965,7 @@ Source | Source should be either 's2' or 'l8'.
 Tile | Tile is a specific tile e.g. 't56jkn'
 Pass | Pass is generally 0, but can be a higher integer e.g. 1 or 2 if multiple passes have ocurred.
 Data Type | Data type can be one of: RGB, NDVI, NDRE, SVI, SVIER or PCD. See below definitions.
-File Type | File type can be either 'tif' or 'csv'. Usually it will be tif.
+File Type | File type can be either 'tif', 'png' or 'csv'. Usually it will be tif. 'png' is only valid for datatypes of RGB or SVIER.
 
 **Data Types:**
 
@@ -975,6 +984,8 @@ File Type | File type can be either 'tif' or 'csv'. Usually it will be tif.
 **File Types:**
 
 *tif* - a TIF file. The most frequently used value as the data types listed above are all delivered in a TIF format file.
+
+*png* - a PNG file. PNG images can be viewed in a web browser. Only valid for RGB and SVIER data types.
 
 *csv* - a CSV (Comma Seperated) list of all the boundary points for the polygon where each row defines an x, y, z point
 
@@ -1082,6 +1093,76 @@ Parameter | Default | Description
 --------- | ------- | -----------
 extref | false | If set to true, regard uuid as defined by you
 
+
+## Delete a Polygon
+
+```python
+import requests
+
+r = requests.delete("https://sapi.satamap.com.au/v1/mykey/poly/90722b22-8ea2-4e2a-be45-ec943afedede")
+
+if r.status_code == 200:
+    data = r.json()
+    print(data)
+else:
+    print('Failed: status code %d' % r.status_code)
+    error = r.json()
+    if 'message' in error:
+        print(error['message'])
+```
+
+```shell
+curl -X DELETE "http://sapi.satamap.com.au/v1/mykey/poly/90722b22-8ea2-4e2a-be45-ec943afedede"
+```
+
+```javascript
+fetch("https://sapi.satamap.com.au/v1/mykey/poly/90722b22-8ea2-4e2a-be45-ec943afedede",
+      { method: "DELETE" })  
+  .then(  
+    function(response) {  
+      if (response.status != 200) {  
+        console.log('Error Status Code: ' + response.status);  
+        // check body for error message
+        response.json().then(function(error) {
+          if ("message" in error) {
+            console.log(error.message);
+          }
+        });  
+        return;  
+      }
+      // examine successful response  
+      response.json().then(function(data) {  
+        data && data.message ? console.log(data.message) : console.log('No response received');
+      });  
+    }  
+  )  
+  .catch(function(err) {  
+    console.log('Fetch Error:', err);  
+  });
+```
+
+> This URI returns a JSON response like this:
+
+```json
+{
+  "message": "Polygon 90722b22-8ea2-4e2a-be45-ec943afedede deleted"
+}
+```
+
+This endpoint deletes a polygon specified by uuid.
+
+### HTTP Request
+
+`DELETE https://sapi.satamap.com.au/v1/<apikey>/poly/<uuid>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+API Key | Your API key
+UUID | e.g. 90722b22-8ea2-4e2a-be45-ec943afedede`
+
+
 ## Save An Area with specific UUID
 
 ```python
@@ -1171,54 +1252,4 @@ WKT coordinates | The bounding longitude-latitude pairs that define the area e.g
 ### Query Parameters
 
 None
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
