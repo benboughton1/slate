@@ -301,7 +301,11 @@ WKT coordinates | The bounding longitude-latitude pairs that define the area e.g
 
 ### Query Parameters
 
-None
+Query parameters are optional parameters appended to the URL
+
+Parameter | Default | Description
+--------- | ------- | -----------
+limit | none | Defines the maximum number of S2 and L8 passes to search for e.g. **limit=5,2** You may wish to do this as imagery extends back to 2013 and it can be time-consuming to search every pass over five years. Note that you may receive somewhat less than exactly five S2 images and two L8 images. 
 
 ## Save An Area for Later Use
 
@@ -1251,5 +1255,10 @@ WKT coordinates | The bounding longitude-latitude pairs that define the area e.g
 
 ### Query Parameters
 
-None
+Query parameters are optional parameters appended to the URL
+
+Parameter | Default | Description
+--------- | ------- | -----------
+limit | none | Defines the maximum number of S2 and L8 passes to search for e.g. **limit=5,2** You may wish to do this as imagery extends back to 2013 and it can be time-consuming to search every pass over five years. Note that you may receive somewhat less than exactly five S2 images and two L8 images. A limit value that does not consist of an _n,n_ structure will be assumed to be limit=1,1
+
 
